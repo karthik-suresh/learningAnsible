@@ -8,3 +8,6 @@
       apt: name={{item}} update_cache=yes
       with_items: "{{apt_package}}"
       become: yes
+    - name: Start service apache2 if not started
+      service: name=apache2 state=restarted
+      become: yes

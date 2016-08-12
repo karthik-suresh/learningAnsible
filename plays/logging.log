@@ -1,0 +1,138 @@
+2016-08-12 11:39:32,023 p=3167 u=karthik |  Using /home/karthik/ananth/ansible/playbooks/playbook2/plays/ansible.cfg as config file
+2016-08-12 11:39:32,061 p=3167 u=karthik |  Loaded callback default of type stdout, v2.0
+2016-08-12 11:39:32,168 p=3167 u=karthik |   ________________________
+< PLAYBOOK: web-nots.yml >
+ ------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+
+2016-08-12 11:39:32,169 p=3167 u=karthik |  1 plays in web-nots.yml
+2016-08-12 11:39:32,221 p=3167 u=karthik |   ________________________
+< PLAY [Install modules] >
+ ------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+
+2016-08-12 11:39:32,286 p=3167 u=karthik |   ______________
+< TASK [setup] >
+ --------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+
+2016-08-12 11:39:35,113 p=3167 u=karthik |  ok: [testserver]
+2016-08-12 11:39:35,166 p=3167 u=karthik |   _____________________
+< TASK [install deps] >
+ ---------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+
+2016-08-12 11:39:35,168 p=3167 u=karthik |  task path: /home/karthik/ananth/ansible/playbooks/playbook2/plays/web-nots.yml:7
+2016-08-12 11:39:57,077 p=3167 u=karthik |  ok: [testserver] => (item=[u'git', u'python-dev', u'python-virtualenv', u'libssl-dev', u'libffi-dev', u'tree']) => {"cache_update_time": 1470982025, "cache_updated": true, "changed": false, "invocation": {"module_args": {"allow_unauthenticated": false, "autoremove": false, "cache_valid_time": null, "deb": null, "default_release": null, "dpkg_options": "force-confdef,force-confold", "force": false, "install_recommends": null, "name": ["git", "python-dev", "python-virtualenv", "libssl-dev", "libffi-dev", "tree"], "only_upgrade": false, "package": ["git", "python-dev", "python-virtualenv", "libssl-dev", "libffi-dev", "tree"], "purge": false, "state": "present", "update_cache": true, "upgrade": null}, "module_name": "apt"}, "item": ["git", "python-dev", "python-virtualenv", "libssl-dev", "libffi-dev", "tree"]}
+2016-08-12 11:39:57,144 p=3167 u=karthik |   _____________________________________________
+< TASK [Start service apache2 if not started] >
+ ---------------------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+
+2016-08-12 11:39:57,145 p=3167 u=karthik |  task path: /home/karthik/ananth/ansible/playbooks/playbook2/plays/web-nots.yml:11
+2016-08-12 11:39:58,752 p=3167 u=karthik |  ok: [testserver] => {"changed": false, "invocation": {"module_args": {"arguments": "", "enabled": null, "name": "apache2", "pattern": null, "runlevel": "default", "sleep": null, "state": "started"}, "module_name": "service"}, "name": "apache2", "state": "started"}
+2016-08-12 11:39:58,801 p=3167 u=karthik |   ____________
+< PLAY RECAP >
+ ------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+
+2016-08-12 11:39:58,803 p=3167 u=karthik |  testserver                 : ok=3    changed=0    unreachable=0    failed=0   
+2016-08-12 11:42:11,233 p=3272 u=karthik |  Using /home/karthik/ananth/ansible/playbooks/playbook2/plays/ansible.cfg as config file
+2016-08-12 11:42:11,270 p=3272 u=karthik |  Loaded callback default of type stdout, v2.0
+2016-08-12 11:42:11,372 p=3272 u=karthik |   ________________________
+< PLAYBOOK: web-nots.yml >
+ ------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+
+2016-08-12 11:42:11,373 p=3272 u=karthik |  1 plays in web-nots.yml
+2016-08-12 11:42:11,419 p=3272 u=karthik |   ________________________
+< PLAY [Install modules] >
+ ------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+
+2016-08-12 11:42:11,478 p=3272 u=karthik |   ______________
+< TASK [setup] >
+ --------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+
+2016-08-12 11:42:18,194 p=3272 u=karthik |  ok: [testserver]
+2016-08-12 11:42:18,246 p=3272 u=karthik |   _____________________
+< TASK [install deps] >
+ ---------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+
+2016-08-12 11:42:18,247 p=3272 u=karthik |  task path: /home/karthik/ananth/ansible/playbooks/playbook2/plays/web-nots.yml:7
+2016-08-12 11:42:39,192 p=3272 u=karthik |  ok: [testserver] => (item=[u'git', u'python-dev', u'python-virtualenv', u'libssl-dev', u'libffi-dev', u'tree']) => {"cache_update_time": 1470982187, "cache_updated": true, "changed": false, "invocation": {"module_args": {"allow_unauthenticated": false, "autoremove": false, "cache_valid_time": null, "deb": null, "default_release": null, "dpkg_options": "force-confdef,force-confold", "force": false, "install_recommends": null, "name": ["git", "python-dev", "python-virtualenv", "libssl-dev", "libffi-dev", "tree"], "only_upgrade": false, "package": ["git", "python-dev", "python-virtualenv", "libssl-dev", "libffi-dev", "tree"], "purge": false, "state": "present", "update_cache": true, "upgrade": null}, "module_name": "apt"}, "item": ["git", "python-dev", "python-virtualenv", "libssl-dev", "libffi-dev", "tree"]}
+2016-08-12 11:42:39,246 p=3272 u=karthik |   _____________________________________________
+< TASK [Start service apache2 if not started] >
+ ---------------------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+
+2016-08-12 11:42:39,247 p=3272 u=karthik |  task path: /home/karthik/ananth/ansible/playbooks/playbook2/plays/web-nots.yml:11
+2016-08-12 11:42:46,662 p=3272 u=karthik |  changed: [testserver] => {"changed": true, "invocation": {"module_args": {"arguments": "", "enabled": null, "name": "apache2", "pattern": null, "runlevel": "default", "sleep": null, "state": "restarted"}, "module_name": "service"}, "name": "apache2", "state": "started"}
+2016-08-12 11:42:46,712 p=3272 u=karthik |   ____________
+< PLAY RECAP >
+ ------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+
+2016-08-12 11:42:46,712 p=3272 u=karthik |  testserver                 : ok=3    changed=1    unreachable=0    failed=0   
