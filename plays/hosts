@@ -11,6 +11,7 @@ testserver
 # ansible_ssh_user=xxx example of variables
 # ansible_ssh_port=xxx grouping of all userid and pass etc
 # ansible_ssh_pass=xxx
+# ansible_python_interpreter=/usr/bin/python2.7 ansible backward compatibility
 
 # [default]
 # 127.0.0.1:2222
