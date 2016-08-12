@@ -1,8 +1,8 @@
-- name: Install horizon prerequisites
+- name: Install modules
   hosts: webservers
-  sudo: True
+  become: yes
   vars:
-    apt_package: [git, python-dev, python-virtualenv, libssl-dev, libffi-dev]
+    apt_package: [git, python-dev, python-virtualenv, libssl-dev, libffi-dev, tree]
   tasks:
     - name: install deps
       apt: name={{item}} update_cache=yes
