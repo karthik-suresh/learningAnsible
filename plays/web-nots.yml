@@ -3,8 +3,9 @@
   become: yes
   vars:
     apt_package: [git, python-dev, python-virtualenv, libssl-dev, libffi-dev, tree]
+    gather_tasks: no # saves a lot of time
   tasks:
-    - name: install deps
+    - name: Install dependencies
       apt: name={{item}} update_cache=yes
       with_items: "{{apt_package}}"
       become: yes
