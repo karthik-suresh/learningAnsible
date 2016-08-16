@@ -9,6 +9,7 @@
       apt: name={{item}} update_cache=yes
       with_items: "{{apt_package}}"
       become: yes
+      when: ansible_os_family == "Debian"
     - name: Start service apache2 if not started
       service: name=apache2 state=restarted
       become: yes
