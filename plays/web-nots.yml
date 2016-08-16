@@ -32,11 +32,15 @@
            clone=no
            update=no
 
-    - name: Install horizon script
-      command: ./run_tests.sh -V chdir=/home/uuuu/horizon/
+#    - name: Install horizon script
+#      command: ./run_tests.sh -V chdir=/home/uuuu/horizon/
 
     - name: Copy local settings example
       command: cp openstack_dashboard/local/local_settings.py.example openstack_dashboard/local/local_settings.py chdir=/home/uuuu/horizon/ 
+
+    - name: Make sure you are running with venv
+      command: ./with_venv.sh chdir=/home/uuuu/horizon/tools/
+      become: yes
 
     - name: Start service apache2 if not started
       service: name=apache2 state=restarted
