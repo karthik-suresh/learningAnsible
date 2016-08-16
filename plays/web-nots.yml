@@ -4,12 +4,32 @@
   vars:
     apt_package: [git, python-dev, python-virtualenv, libssl-dev, libffi-dev, tree]
     gather_tasks: no # saves a lot of time
+  vars_prompt: 
+    - name: "branch"
+      prompt: "Which version of horizon do you want to install?"
+      default: "master"
+
   tasks:
     - name: Install dependencies
       apt: name={{item}} update_cache=yes
       with_items: "{{apt_package}}"
       become: yes
       when: ansible_os_family == "Debian"
+
+    - name: Ensure github.com is a known host # lookup module added else git clone fails
+      lineinfile:
+        dest: /root/.ssh/known_hosts
+        create: yes
+        state: present
+        line: "{{ lookup('pipe', 'ssh-keyscan -t rsa github.com') }}"
+        regexp: "^github\\.com" # add known hosts here
+
+    - name: Clone horizon
+      git: repo=https://github.com/openstack/horizon.git
+           dest=/home/uuuu/horizon/
+           version={{ branch }}
+           accept_hostkey=True
+
     - name: Start service apache2 if not started
       service: name=apache2 state=restarted
       become: yes
