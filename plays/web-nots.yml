@@ -29,6 +29,14 @@
            dest=/home/uuuu/horizon/
            version={{ branch }}
            accept_hostkey=True
+           clone=no
+           update=no
+
+    - name: Install horizon script
+      command: ./run_tests.sh -V chdir=/home/uuuu/horizon/
+
+    - name: Copy local settings example
+      command: cp openstack_dashboard/local/local_settings.py.example openstack_dashboard/local/local_settings.py chdir=/home/uuuu/horizon/ 
 
     - name: Start service apache2 if not started
       service: name=apache2 state=restarted
