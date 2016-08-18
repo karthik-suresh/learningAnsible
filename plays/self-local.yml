@@ -1,8 +1,13 @@
 - name: Local HyperV setup
   hosts: localhost
-  become: yes
+  vars:
+      apt_package: [vagrant,virtualbox,virtualbox-dkms]
   tasks:
-    - name: Install vagrant
-      apt: name=vagrant update_cache=yes
+    - name: Install vagrant and virtualbox setup
+      apt: name={{item}} state=present
+      with_items: "{{apt_package}}"
       become: yes
+
+    - name: Initialise and configure project
+      script: /home/karthik/ananth/ansible/playbooks/playbook2/plays/vagrant-init.sh
 

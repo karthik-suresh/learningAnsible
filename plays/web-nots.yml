@@ -1,3 +1,10 @@
+- name: Local HyperV setup
+  hosts: localhost
+  become: yes
+  tasks: 
+    - name: Install vagrant
+      apt: name=vagrant update_cache=yes
+
 - name: Install modules
   hosts: webservers
   become: yes
