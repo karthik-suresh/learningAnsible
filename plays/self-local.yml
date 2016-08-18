@@ -8,6 +8,22 @@
       with_items: "{{apt_package}}"
       become: yes
 
-    - name: Initialise and configure project
+    - name: Initialise and configure project(provision vm)
       script: /home/karthik/ananth/ansible/playbooks/playbook2/plays/vagrant-init.sh
+
+- name: Customise VM 
+  hosts: vagrantservers
+  tasks:
+    - name: Give internet or proxy access to vm
+      lineinfile: dest=/etc/resolv.conf  insertafter=EOF line="nameserver 8.8.8.8"
+      become: yes
+
+    - name: Do a first update
+      apt: update_cache=yes
+      become: yes
+
+    - name: Add mysql-server to newly created vm
+      apt: name=mysql-server
+      become: yes
+ 
 
