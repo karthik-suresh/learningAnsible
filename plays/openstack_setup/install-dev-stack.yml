@@ -1,0 +1,12 @@
+- name: Install devstack
+  hosts: webservers
+
+  tasks:
+    - name: Copy localrc file for for credential settings.
+      copy: src=local.conf dest=/home/uuuu/new_stack/devstack/local.conf
+
+    - name: Copy stackrc file for for git and url settings.
+      copy: src=stackrc dest=/home/uuuu/new_stack/devstack/stackrc
+
+    - name: Install devstack
+      command: ./stack.sh chdir=/home/uuuu/new_stack/devstack/
