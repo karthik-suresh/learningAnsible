@@ -1,0 +1,41 @@
+- name: Prerequsites
+  hosts: webservers
+  become: yes
+  vars:
+    apt_package: [git, python-dev, python-virtualenv, libssl-dev, libffi-dev, tree]
+    gather_tasks: no # saves a lot of time
+  vars_prompt: 
+    - name: "branch"
+      prompt: "Which version of devstack do you want to install?"
+      default: "stable/liberty"
+
+  tasks:
+    - name: Install dependencies
+      apt: name={{item}} update_cache=yes
+      with_items: "{{apt_package}}"
+      become: yes
+      when: ansible_os_family == "Debian"
+
+    - name: Ensure github.com is a known host # lookup module added else git clone fails
+      lineinfile:
+        dest: /root/.ssh/known_hosts
+        create: yes
+        state: present
+        line: "{{ lookup('pipe', 'ssh-keyscan -t rsa github.com') }}"
+        regexp: "^github\\.com" # add known hosts here
+
+    - name: Ensure git.openstack.org is a known host # lookup module added else git clone fails
+      shell: ssh-keyscan -H git.openstack.org >> ~/.ssh/known_hosts
+
+
+
+- name: Setup devstack
+  hosts: webservers
+  
+  tasks:
+    - name: Install dependencies
+      git: repo=https://git.openstack.org/openstack-dev/devstack
+           dest=/home/uuuu/new_stack/devstack/
+           version=stable/liberty
+           accept_hostkey=True
+           update=no
