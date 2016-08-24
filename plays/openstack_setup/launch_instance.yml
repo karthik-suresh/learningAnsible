@@ -1,0 +1,16 @@
+- name: launch a compute instance
+  hosts: webservers
+  
+  tasks:
+    - name: launch an instance with a string
+      os_server:
+        name: vm1
+        auth:
+          auth_url: http://172.16.133.206:5000/v2.0
+          username: admin
+          password: test123
+          project_name: admin
+        name: vm1
+        image: ubuntu
+        flavor: m1.small
+
