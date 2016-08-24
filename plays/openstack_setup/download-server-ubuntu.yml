@@ -1,0 +1,8 @@
+- name: Download ubuntu server image
+  hosts: webservers
+
+  tasks:
+    - name: Download 32 bit image ubuntu
+      get_url: url=https://cloud-images.ubuntu.com/releases/14.04/release/ubuntu-14.04-server-cloudimg-i386-disk1.img dest=/home/uuuu/new_stack/
+      register: some_var
+

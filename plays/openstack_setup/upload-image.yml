@@ -1,0 +1,16 @@
+- name: Upload ubuntu image
+  hosts: webservers
+
+  tasks:
+     - name: Upload ubuntu server image
+       os_image:
+         auth:
+           auth_url: http://172.16.133.206:5000/v2.0
+           username: admin
+           password: test123
+           project_name: admin
+         name: ubuntu
+         container_format: bare
+         disk_format: qcow2
+         state: present
+         filename: /home/uuuu/new_stack/ubuntu-14.04-server-cloudimg-armhf-disk1.img
