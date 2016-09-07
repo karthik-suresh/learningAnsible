@@ -1,0 +1,4 @@
+---
+- name: "branch"
+     prompt: "Which version of horizon do you want to install?"
+     default: "master"

@@ -1,0 +1,2 @@
+---
+apt_package: [git, python-dev, python-virtualenv, libssl-dev, libffi-dev, tree]

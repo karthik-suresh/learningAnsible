@@ -1,0 +1,4 @@
+---
+- name: Copy local settings example
+  command: cp openstack_dashboard/local/local_settings.py.example openstack_dashboard/local/local_settings.py chdir=/home/uuuu/horizon/
+
